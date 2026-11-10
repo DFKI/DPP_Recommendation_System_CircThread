@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Digital Product Memory Information Linking and Storage Service"
+abstract: "Prototype of a decentralised, recommendation-driven Digital Product Passport developed in the EU Horizon 2020 project CircThread (grant agreement No. 958448)."
+type: software
+license: MIT
+authors:
+  - family-names: Brozeit
+    given-names: Jonas
+    affiliation: "German Research Center for Artificial Intelligence (DFKI)"
+  - family-names: Plociennik
+    given-names: Christiane
+    affiliation: "German Research Center for Artificial Intelligence (DFKI)"
+  - family-names: Ruskowski
+    given-names: Martin
+    affiliation: "German Research Center for Artificial Intelligence (DFKI)"
+keywords:
+  - Digital Product Passport
+  - Circular Economy
+  - Knowledge Graph
+  - Recommender Systems

@@ -1,0 +1,14 @@
+.env.production
+.env.local
+.env.*.local
+
+*.docx 
+
+
+generated_assets/
+# Python
+__pycache__/
+*.pyc
+
+# Node
+frontend/node_modules/

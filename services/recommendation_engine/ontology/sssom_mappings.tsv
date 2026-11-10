@@ -1,0 +1,42 @@
+# curie_map:
+#   dpp: "http://circthread.2020.2/ontology/dpp#"
+#   schema: "http://schema.org/"
+#   hs2022: "https://worldoftaxonomy.com/codes/hs_2022/"
+#   espr: "http://data.europa.eu/eli/reg/2024/1781/oj#"
+#   semapv: "https://w3id.org/semapv/vocab/"
+#   skos: "http://www.w3.org/2004/02/skos/core#"
+# mapping_set_id: https://circthread.2020.2/sssom/dpp-mappings
+# mapping_set_version: 1.1.0
+# mapping_set_description: "Mappings from the Digital Product Memory DPP vocabulary to Schema.org, the Harmonized System 2022 (HS 2022) and concepts of the Ecodesign for Sustainable Products Regulation (EU) 2024/1781 (ESPR)."
+# creator_label: "CircThread project, German Research Center for Artificial Intelligence (DFKI)"
+# license: https://creativecommons.org/licenses/by/4.0/
+# mapping_date: 2026-10-28
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	mapping_tool	confidence
+dpp:Product	Product	skos:exactMatch	schema:Product	Product	semapv:ManualMappingCuration	manual	1.0
+dpp:Manufacturer	Manufacturer	skos:broadMatch	schema:Organization	Organization	semapv:ManualMappingCuration	manual	0.9
+dpp:Consumer	Consumer	skos:broadMatch	schema:Person	Person	semapv:ManualMappingCuration	manual	0.8
+dpp:WashingMachine	Washing Machine	skos:closeMatch	hs2022:845011	Washing machines; household or laundry-type, fully-automatic (dry linen capacity not exceeding 10 kg)	semapv:ManualMappingCuration	manual	0.8
+dpp:Dishwasher	Dishwasher	skos:closeMatch	hs2022:842211	Dish washing machines; of the household type	semapv:ManualMappingCuration	manual	0.9
+dpp:Boiler	Boiler	skos:closeMatch	hs2022:840310	Boilers; central heating boilers (excluding those of heading no. 8402)	semapv:ManualMappingCuration	manual	0.85
+dpp:SolarPanel	Solar Panel	skos:closeMatch	hs2022:854143	Photovoltaic cells assembled in modules or made up into panels	semapv:ManualMappingCuration	manual	0.9
+dpp:LithiumBattery	Lithium Battery	skos:closeMatch	hs2022:850760	Electric accumulators; lithium-ion	semapv:ManualMappingCuration	manual	0.85
+dpp:LifecycleEvent	Lifecycle Event	skos:broadMatch	schema:Event	Event	semapv:ManualMappingCuration	manual	0.7
+dpp:HazardousSubstance	Hazardous Substance	skos:relatedMatch	espr:substance-of-concern	Substance of concern (ESPR)	semapv:ManualMappingCuration	manual	0.8
+dpp:Recycle	Recycle	skos:relatedMatch	espr:recycling-information	Recycling information (ESPR)	semapv:ManualMappingCuration	manual	0.85
+dpp:Repair	Repair	skos:relatedMatch	espr:repair-information	Repair information (ESPR)	semapv:ManualMappingCuration	manual	0.85
+dpp:repairabilityScore	repairability score	skos:relatedMatch	espr:repairability-index	Repairability index (ESPR)	semapv:ManualMappingCuration	manual	0.95
+dpp:recyclabilityPercentage	recyclability percentage	skos:relatedMatch	espr:recyclability-rate	Recyclability rate (ESPR)	semapv:ManualMappingCuration	manual	0.95
+dpp:hasMaterial	has material	skos:relatedMatch	schema:material	material	semapv:ManualMappingCuration	manual	0.85
+dpp:productId	product ID	skos:closeMatch	schema:productID	productID	semapv:ManualMappingCuration	manual	0.9
+dpp:manufacturer	manufacturer	skos:closeMatch	schema:manufacturer	manufacturer	semapv:ManualMappingCuration	manual	0.9
+dpp:model	model	skos:closeMatch	schema:model	model	semapv:ManualMappingCuration	manual	0.9
+dpp:eanBarcode	EAN barcode	skos:exactMatch	schema:gtin13	gtin13	semapv:ManualMappingCuration	manual	0.95
+dpp:brandName	brand name	skos:closeMatch	schema:brand	brand	semapv:ManualMappingCuration	manual	0.85
+dpp:colour	colour	skos:exactMatch	schema:color	color	semapv:ManualMappingCuration	manual	0.95
+dpp:countryOfOrigin	country of origin	skos:closeMatch	schema:countryOfOrigin	countryOfOrigin	semapv:ManualMappingCuration	manual	0.9
+dpp:manufacturingDate	manufacturing date	skos:exactMatch	schema:productionDate	productionDate	semapv:ManualMappingCuration	manual	0.95
+dpp:weightKg	weight (kg)	skos:closeMatch	schema:weight	weight	semapv:ManualMappingCuration	manual	0.9
+dpp:recycledContentPct	recycled content percentage	skos:exactMatch	schema:recycledContentPercentage	recycledContentPercentage	semapv:ManualMappingCuration	manual	0.95
+dpp:substanceOfConcernList	substances of concern	skos:closeMatch	schema:substanceOfConcern	substanceOfConcern	semapv:ManualMappingCuration	manual	0.85
+dpp:energyLabel	energy label	skos:relatedMatch	schema:hasEnergyConsumptionDetails	hasEnergyConsumptionDetails	semapv:ManualMappingCuration	manual	0.8
+dpp:certifications	certifications	skos:closeMatch	schema:hasCertification	hasCertification	semapv:ManualMappingCuration	manual	0.85

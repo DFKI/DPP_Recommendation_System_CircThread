@@ -1,0 +1,633 @@
+{
+  "assetAdministrationShells": [
+    {
+      "idShort": "AAS_WM_GORENJE_001",
+      "id": "urn:circthread:aas:WM-GORENJE-001",
+      "assetInformation": {
+        "assetKind": "Instance",
+        "globalAssetId": "urn:circthread:product:WM-GORENJE-001"
+      },
+      "submodels": [
+        {
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "urn:circthread:submodel:WM-GORENJE-001:nameplate"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "idShort": "AAS_SP_SUNPOWER_002",
+      "id": "urn:circthread:aas:SP-SUNPOWER-002",
+      "assetInformation": {
+        "assetKind": "Instance",
+        "globalAssetId": "urn:circthread:product:SP-SUNPOWER-002"
+      },
+      "submodels": [
+        {
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "urn:circthread:submodel:SP-SUNPOWER-002:nameplate"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "submodels": [
+    {
+      "idShort": "Nameplate",
+      "id": "urn:circthread:submodel:WM-GORENJE-001:nameplate",
+      "kind": "Instance",
+      "semanticId": {
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "https://admin-shell.io/zvei/nameplate/2/0/Nameplate"
+          }
+        ]
+      },
+      "submodelElements": [
+        {
+          "modelType": "Property",
+          "idShort": "URIOfTheProduct",
+          "valueType": "xs:string",
+          "value": "urn:circthread:product:WM-GORENJE-001"
+        },
+        {
+          "modelType": "MultiLanguageProperty",
+          "idShort": "ManufacturerName",
+          "value": [
+            { "language": "en", "text": "Gorenje (Hisense Group)" },
+            { "language": "sl", "text": "Gorenje d.o.o. (Hisense Group)" },
+            { "language": "de", "text": "Gorenje (Hisense Group)" }
+          ]
+        },
+        {
+          "modelType": "MultiLanguageProperty",
+          "idShort": "ManufacturerProductDesignation",
+          "value": [
+            { "language": "en", "text": "WNA 94 ARIWIFI" },
+            { "language": "sl", "text": "WNA 94 ARIWIFI" }
+          ]
+        },
+        {
+          "modelType": "MultiLanguageProperty",
+          "idShort": "ManufacturerProductType",
+          "value": [
+            { "language": "en", "text": "Front-loading washing machine with steam function and Wi-Fi connectivity" },
+            { "language": "de", "text": "Frontlader-Waschmaschine mit Dampffunktion und WLAN-Konnektivität" }
+          ]
+        },
+        {
+          "modelType": "MultiLanguageProperty",
+          "idShort": "ManufacturerProductFamily",
+          "value": [
+            { "language": "en", "text": "Gorenje WaveActive Series" }
+          ]
+        },
+        {
+          "modelType": "Property",
+          "idShort": "SerialNumber",
+          "valueType": "xs:string",
+          "value": "GRN-2024-VL-003847"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "BatchNumber",
+          "valueType": "xs:string",
+          "value": "VL-2024-B02-047"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "HardwareVersion",
+          "valueType": "xs:string",
+          "value": "HW-2024-R1"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "SoftwareVersion",
+          "valueType": "xs:string",
+          "value": "FW-2024.08.11"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "YearOfConstruction",
+          "valueType": "xs:string",
+          "value": "2024"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "DateOfManufacture",
+          "valueType": "xs:date",
+          "value": "2024-02-12"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "CountryOfOrigin",
+          "valueType": "xs:string",
+          "value": "SI"
+        },
+        {
+          "modelType": "MultiLanguageProperty",
+          "idShort": "PhysicalAddress",
+          "value": [
+            { "language": "en", "text": "Gorenje d.o.o., Partizanska cesta 12, 3503 Velenje, Slovenia" }
+          ]
+        },
+        {
+          "modelType": "Property",
+          "idShort": "EANIdentifier",
+          "valueType": "xs:string",
+          "value": "3838782093947"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "GlobalAssetId",
+          "valueType": "xs:string",
+          "value": "urn:circthread:product:WM-GORENJE-001"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "CircThreadDPPReference",
+          "valueType": "xs:string",
+          "value": "https://circthread.eu/dpp/WM-GORENJE-001"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "DigitalTwinReference",
+          "valueType": "xs:string",
+          "value": "urn:circthread:dt:WM-GORENJE-001"
+        },
+        {
+          "modelType": "SubmodelElementCollection",
+          "idShort": "Markings",
+          "value": [
+            {
+              "modelType": "SubmodelElementCollection",
+              "idShort": "Marking_CE",
+              "value": [
+                {
+                  "modelType": "MultiLanguageProperty",
+                  "idShort": "MarkingName",
+                  "value": [ { "language": "en", "text": "CE" } ]
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "MarkingSystem",
+                  "valueType": "xs:string",
+                  "value": "EU Declaration of Conformity – LVD 2014/35/EU, EMC 2014/30/EU"
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "MarkingFile",
+                  "valueType": "xs:string",
+                  "value": "https://circthread.eu/dpp/WM-GORENJE-001/docs/CE-Declaration-2024.pdf"
+                }
+              ]
+            },
+            {
+              "modelType": "SubmodelElementCollection",
+              "idShort": "Marking_EnergyLabel",
+              "value": [
+                {
+                  "modelType": "MultiLanguageProperty",
+                  "idShort": "MarkingName",
+                  "value": [ { "language": "en", "text": "EU Energy Label – Class A" } ]
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "MarkingSystem",
+                  "valueType": "xs:string",
+                  "value": "EU Energy Labelling Regulation 2019/2014 – washing machines"
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "EnergyClass",
+                  "valueType": "xs:string",
+                  "value": "A"
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "AnnualEnergyConsumption_kWh",
+                  "valueType": "xs:decimal",
+                  "value": "53"
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "AnnualWaterConsumption_L",
+                  "valueType": "xs:decimal",
+                  "value": "49"
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "NoiseLevel_dB",
+                  "valueType": "xs:decimal",
+                  "value": "72"
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "NoiseClass",
+                  "valueType": "xs:string",
+                  "value": "B"
+                }
+              ]
+            },
+            {
+              "modelType": "SubmodelElementCollection",
+              "idShort": "Marking_TÜVSÜD",
+              "value": [
+                {
+                  "modelType": "MultiLanguageProperty",
+                  "idShort": "MarkingName",
+                  "value": [ { "language": "en", "text": "TUV SUD Safety Certification" } ]
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "MarkingSystem",
+                  "valueType": "xs:string",
+                  "value": "TUV SUD – EN 60335-1, EN 60335-2-7"
+                }
+              ]
+            },
+            {
+              "modelType": "SubmodelElementCollection",
+              "idShort": "Marking_Woolmark",
+              "value": [
+                {
+                  "modelType": "MultiLanguageProperty",
+                  "idShort": "MarkingName",
+                  "value": [ { "language": "en", "text": "Woolmark – Gentle on Wool" } ]
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "MarkingSystem",
+                  "valueType": "xs:string",
+                  "value": "The Woolmark Company – Machine Washable Wool programme"
+                }
+              ]
+            },
+            {
+              "modelType": "SubmodelElementCollection",
+              "idShort": "Marking_WEEE",
+              "value": [
+                {
+                  "modelType": "MultiLanguageProperty",
+                  "idShort": "MarkingName",
+                  "value": [ { "language": "en", "text": "WEEE – Crossed Out Wheelie Bin" } ]
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "MarkingSystem",
+                  "valueType": "xs:string",
+                  "value": "WEEE Directive 2012/19/EU – Category 1 Large Household Appliances"
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "EPR_RegistrationID",
+                  "valueType": "xs:string",
+                  "value": "EPR-SI-GORENJE-2024-WM-0047"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modelType": "SubmodelElementCollection",
+          "idShort": "CircularEconomy",
+          "value": [
+            {
+              "modelType": "Property",
+              "idShort": "RepairabilityScore",
+              "valueType": "xs:decimal",
+              "value": "7.4",
+              "semanticId": { "keys": [ { "type": "GlobalReference", "value": "https://circthread.eu/ontology/repairabilityScore" } ] }
+            },
+            {
+              "modelType": "Property",
+              "idShort": "RecyclabilityPct",
+              "valueType": "xs:decimal",
+              "value": "80.0"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "CircularEconomyIndex",
+              "valueType": "xs:decimal",
+              "value": "76.4"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "SparePartsAvailabilityYears",
+              "valueType": "xs:integer",
+              "value": "10"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "DesignForRepairCompliance",
+              "valueType": "xs:boolean",
+              "value": "true"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "ModularDesign",
+              "valueType": "xs:boolean",
+              "value": "true"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "RecycledContentPct",
+              "valueType": "xs:decimal",
+              "value": "28.0"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "CarbonFootprint_kg_CO2e",
+              "valueType": "xs:decimal",
+              "value": "350.0"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "ExpectedLifetimeYears",
+              "valueType": "xs:integer",
+              "value": "11"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "TakeBackScheme",
+              "valueType": "xs:string",
+              "value": "CircThread take-back via MediaMarkt stores (1000+ EU locations) or Gorenje dealers – free of charge"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "MaterialPassportReference",
+              "valueType": "xs:string",
+              "value": "MPREF-CIRCTHREAD-WM-GORENJE-001"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "EPDReference",
+              "valueType": "xs:string",
+              "value": "EPD-GOR-2024-0382-EN"
+            }
+          ]
+        },
+        {
+          "modelType": "SubmodelElementCollection",
+          "idShort": "ContactInformation",
+          "value": [
+            {
+              "modelType": "MultiLanguageProperty",
+              "idShort": "ManufacturerAddress",
+              "value": [ { "language": "en", "text": "Gorenje d.o.o., Partizanska cesta 12, 3503 Velenje, Slovenia" } ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "ManufacturerWebsite",
+              "valueType": "xs:string",
+              "value": "https://www.gorenje.com"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "ServiceWebsite",
+              "valueType": "xs:string",
+              "value": "https://www.gorenje.com/service"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "CircThreadProjectWebsite",
+              "valueType": "xs:string",
+              "value": "https://www.circthread.com"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "CircThreadDPPPortal",
+              "valueType": "xs:string",
+              "value": "https://circthread.eu/dpp/WM-GORENJE-001"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "idShort": "Nameplate",
+      "id": "urn:circthread:submodel:SP-SUNPOWER-002:nameplate",
+      "kind": "Instance",
+      "semanticId": {
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "https://admin-shell.io/zvei/nameplate/2/0/Nameplate"
+          }
+        ]
+      },
+      "submodelElements": [
+        {
+          "modelType": "Property",
+          "idShort": "URIOfTheProduct",
+          "valueType": "xs:string",
+          "value": "urn:circthread:product:SP-SUNPOWER-002"
+        },
+        {
+          "modelType": "MultiLanguageProperty",
+          "idShort": "ManufacturerName",
+          "value": [
+            {
+              "language": "en",
+              "text": "SunPower / Maxeon Solar"
+            }
+          ]
+        },
+        {
+          "modelType": "MultiLanguageProperty",
+          "idShort": "ManufacturerProductDesignation",
+          "value": [
+            {
+              "language": "en",
+              "text": "Maxeon 6 AC SPR-MAX6-440-COM-AC"
+            }
+          ]
+        },
+        {
+          "modelType": "MultiLanguageProperty",
+          "idShort": "ManufacturerProductType",
+          "value": [
+            {
+              "language": "en",
+              "text": "Solar panel with integrated microinverter"
+            }
+          ]
+        },
+        {
+          "modelType": "Property",
+          "idShort": "SerialNumber",
+          "valueType": "xs:string",
+          "value": "MXSP-2024-KL88721"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "YearOfConstruction",
+          "valueType": "xs:string",
+          "value": "2024"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "DateOfManufacture",
+          "valueType": "xs:date",
+          "value": "2024-03-05"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "CountryOfOrigin",
+          "valueType": "xs:string",
+          "value": "MX"
+        },
+        {
+          "modelType": "SubmodelElementCollection",
+          "idShort": "Markings",
+          "value": [
+            {
+              "modelType": "SubmodelElementCollection",
+              "idShort": "Marking01",
+              "value": [
+                {
+                  "modelType": "MultiLanguageProperty",
+                  "idShort": "MarkingName",
+                  "value": [
+                    {
+                      "language": "en",
+                      "text": "CE"
+                    }
+                  ]
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "MarkingSystem",
+                  "valueType": "xs:string",
+                  "value": "EU Declaration of Conformity"
+                }
+              ]
+            },
+            {
+              "modelType": "SubmodelElementCollection",
+              "idShort": "Marking02",
+              "value": [
+                {
+                  "modelType": "MultiLanguageProperty",
+                  "idShort": "MarkingName",
+                  "value": [
+                    {
+                      "language": "en",
+                      "text": "IEC 61215"
+                    }
+                  ]
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "MarkingSystem",
+                  "valueType": "xs:string",
+                  "value": "PV module qualification"
+                }
+              ]
+            },
+            {
+              "modelType": "SubmodelElementCollection",
+              "idShort": "Marking03",
+              "value": [
+                {
+                  "modelType": "MultiLanguageProperty",
+                  "idShort": "MarkingName",
+                  "value": [
+                    {
+                      "language": "en",
+                      "text": "IEC 61730"
+                    }
+                  ]
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "MarkingSystem",
+                  "valueType": "xs:string",
+                  "value": "PV module safety qualification"
+                }
+              ]
+            },
+            {
+              "modelType": "SubmodelElementCollection",
+              "idShort": "Marking04",
+              "value": [
+                {
+                  "modelType": "MultiLanguageProperty",
+                  "idShort": "MarkingName",
+                  "value": [
+                    {
+                      "language": "en",
+                      "text": "PV Cycle – Registered Producer"
+                    }
+                  ]
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "MarkingSystem",
+                  "valueType": "xs:string",
+                  "value": "PV Cycle EU take-back scheme – WEEE Directive Category 4"
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "EPR_RegistrationID",
+                  "valueType": "xs:string",
+                  "value": "EPR-EU-PVCYCLE-MAXEON-2024-001"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modelType": "SubmodelElementCollection",
+          "idShort": "CircularEconomy",
+          "value": [
+            {
+              "modelType": "Property",
+              "idShort": "RecyclabilityPct",
+              "valueType": "xs:decimal",
+              "value": "95.0"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "ExpectedLifetimeYears",
+              "valueType": "xs:integer",
+              "value": "40"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "TakeBackScheme",
+              "valueType": "xs:string",
+              "value": "PV Cycle – pvccycle.org/take-back; Maxeon installer return programme"
+            }
+          ]
+        },
+        {
+          "modelType": "SubmodelElementCollection",
+          "idShort": "ContactInformation",
+          "value": [
+            {
+              "modelType": "Property",
+              "idShort": "ManufacturerWebsite",
+              "valueType": "xs:string",
+              "value": "https://www.maxeon.com"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "CircThreadProjectWebsite",
+              "valueType": "xs:string",
+              "value": "https://www.circthread.com"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "lastUpdated": "2026-05-15"
+}

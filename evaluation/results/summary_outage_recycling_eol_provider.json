@@ -1,0 +1,67 @@
+{
+  "queries": 270,
+  "products": 9,
+  "c1_no_error": 265,
+  "critical_failures": 0,
+  "outcomes": {
+    "ok": 265,
+    "providers_unavailable": 5
+  },
+  "c3_values_attributed": 270,
+  "c4_gaps_reported": 270,
+  "modelled_queries": 135,
+  "c2_static_matches_kg_modelled": 130,
+  "median_recommended_modelled": 18,
+  "range_recommended_modelled": [
+    0,
+    39
+  ],
+  "median_recommended_non_empty_modelled": 9,
+  "median_fields_available": 112,
+  "median_share_displayed_modelled": 0.116,
+  "median_suggestions_modelled": 17,
+  "unmodelled_queries": 135,
+  "unmodelled_filter_modes": [
+    "role_fallback"
+  ],
+  "median_recommended_non_empty_unmodelled": 19,
+  "median_providers_queried": 3.0,
+  "median_providers_skipped": 2.0,
+  "queries_with_skipped_providers": 268,
+  "queries_with_unavailable_providers": 198,
+  "queries_with_conflicts": 50,
+  "median_response_ms": 146.1,
+  "p95_response_ms": 307.6,
+  "median_provider_requests_ms": 40.2,
+  "outage": {
+    "baseline": "functional_validation.csv",
+    "outage_provider": "Recycling EOL Provider",
+    "queries_with_additional_gaps": 187,
+    "examples": [
+      {
+        "product_id": "LB-LG-001",
+        "role": "recycler",
+        "event": "recycling",
+        "recommended": 30,
+        "data_gaps": 13,
+        "baseline_data_gaps": 3
+      },
+      {
+        "product_id": "WM-BOSCH-001",
+        "role": "recycler",
+        "event": "recycling",
+        "recommended": 24,
+        "data_gaps": 12,
+        "baseline_data_gaps": 2
+      },
+      {
+        "product_id": "WM-BOSCH-001",
+        "role": "repairer",
+        "event": "repair",
+        "recommended": 21,
+        "data_gaps": 6,
+        "baseline_data_gaps": 3
+      }
+    ]
+  }
+}

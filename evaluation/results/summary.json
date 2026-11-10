@@ -1,0 +1,30 @@
+{
+  "queries": 270,
+  "products": 9,
+  "c1_no_error": 270,
+  "c3_values_attributed": 270,
+  "c4_gaps_reported": 270,
+  "modelled_queries": 135,
+  "c2_static_matches_kg_modelled": 135,
+  "median_recommended_modelled": 18,
+  "range_recommended_modelled": [
+    9,
+    39
+  ],
+  "median_recommended_non_empty_modelled": 12,
+  "median_fields_available": 132,
+  "median_share_displayed_modelled": 0.122,
+  "median_suggestions_modelled": 18,
+  "unmodelled_queries": 135,
+  "unmodelled_filter_modes": [
+    "role_fallback"
+  ],
+  "median_recommended_non_empty_unmodelled": 24,
+  "median_providers_queried": 3.0,
+  "median_providers_skipped": 2.0,
+  "queries_with_skipped_providers": 268,
+  "queries_with_conflicts": 59,
+  "median_response_ms": 172.6,
+  "p95_response_ms": 650.3,
+  "median_provider_requests_ms": 62.2
+}

@@ -1,0 +1,222 @@
+services:
+  caddy:
+    image: caddy:2-alpine
+    container_name: circthread-caddy
+    restart: unless-stopped
+    environment:
+      - APP_DOMAIN=${APP_DOMAIN:?set APP_DOMAIN in .env.production}
+      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL:?set LETSENCRYPT_EMAIL in .env.production}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      frontend:
+        condition: service_started
+    networks:
+      - circthread-network
+
+  neo4j:
+    image: neo4j:5-community
+    container_name: circthread-neo4j
+    restart: unless-stopped
+    environment:
+      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD:?set NEO4J_PASSWORD in .env.production}
+      - NEO4J_PLUGINS=["apoc"]
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_apoc_import_file_enabled=true
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+    networks:
+      - circthread-network
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:7474 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  service-registry:
+    build:
+      context: .
+      dockerfile: services/service_registry/Dockerfile
+    container_name: circthread-service-registry
+    restart: unless-stopped
+    volumes:
+      - registry_data:/app/data
+    networks:
+      - circthread-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8003/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mock-provider:
+    build:
+      context: .
+      dockerfile: services/mock_providers/Dockerfile
+    container_name: circthread-mock-provider
+    restart: unless-stopped
+    networks:
+      - circthread-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8010/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  recycling-eol-provider:
+    build:
+      context: .
+      dockerfile: services/recycling_eol_provider/Dockerfile
+    container_name: circthread-recycling-eol-provider
+    restart: unless-stopped
+    networks:
+      - circthread-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8021/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  midlife-purchase-provider:
+    build:
+      context: .
+      dockerfile: services/midlife_purchase_provider/Dockerfile
+    container_name: circthread-midlife-purchase-provider
+    restart: unless-stopped
+    networks:
+      - circthread-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8022/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  aas-nameplate-provider:
+    build:
+      context: .
+      dockerfile: services/aas_nameplate_provider/Dockerfile
+    container_name: circthread-aas-nameplate-provider
+    restart: unless-stopped
+    volumes:
+      - aas_nameplate_data:/app/data
+    networks:
+      - circthread-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8023/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  eprel-provider:
+    build:
+      context: .
+      dockerfile: services/eprel_provider/Dockerfile
+    container_name: circthread-eprel-provider
+    restart: unless-stopped
+    networks:
+      - circthread-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8024/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  repair-service-provider:
+    build:
+      context: .
+      dockerfile: services/repair_service_provider/Dockerfile
+    container_name: circthread-repair-service-provider
+    restart: unless-stopped
+    networks:
+      - circthread-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8025/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  recommendation-engine:
+    build:
+      context: .
+      dockerfile: services/recommendation_engine/Dockerfile
+    container_name: circthread-recommendation-engine
+    restart: unless-stopped
+    environment:
+      - NEO4J_URI=bolt://neo4j:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=${NEO4J_PASSWORD:?set NEO4J_PASSWORD in .env.production}
+    depends_on:
+      neo4j:
+        condition: service_healthy
+    networks:
+      - circthread-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  resolver:
+    build:
+      context: .
+      dockerfile: services/resolver/Dockerfile
+    container_name: circthread-resolver
+    restart: unless-stopped
+    environment:
+      - SERVICE_REGISTRY_URL=http://service-registry:8003
+      - RECOMMENDATION_ENGINE_URL=http://recommendation-engine:8002
+      - MOCK_PROVIDER_URL=http://mock-provider:8010
+    depends_on:
+      service-registry:
+        condition: service_healthy
+      recommendation-engine:
+        condition: service_healthy
+      mock-provider:
+        condition: service_healthy
+      recycling-eol-provider:
+        condition: service_healthy
+      midlife-purchase-provider:
+        condition: service_healthy
+      aas-nameplate-provider:
+        condition: service_healthy
+      eprel-provider:
+        condition: service_healthy
+      repair-service-provider:
+        condition: service_healthy
+    networks:
+      - circthread-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: circthread-frontend
+    restart: unless-stopped
+    depends_on:
+      resolver:
+        condition: service_healthy
+    networks:
+      - circthread-network
+
+volumes:
+  caddy_data:
+  caddy_config:
+  neo4j_data:
+  neo4j_logs:
+  registry_data:
+  aas_nameplate_data:
+
+networks:
+  circthread-network:
+    driver: bridge

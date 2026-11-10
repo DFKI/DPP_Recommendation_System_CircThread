@@ -1,0 +1,333 @@
+@prefix dpp: <http://circthread.2020.2/ontology/dpp#> .
+@prefix agentrole: <http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl#> .
+@prefix participation: <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# ─── Ontology Declaration ──────────────────────────────────────────────────────
+
+<http://circthread.2020.2/ontology/dpp>
+    rdf:type owl:Ontology ;
+    rdfs:label "Digital Product Memory Digital Product Passport Ontology"@en ;
+    dcterms:description "ODP-based ontology for the Digital Product Passport supporting Circular Economy R-strategies. Based on modular Ontology Design Patterns."@en ;
+    dcterms:creator "CircThread H2020 Project" ;
+    owl:imports <http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl> ,
+                <http://www.ontologydesignpatterns.org/cp/owl/participation.owl> ;
+    owl:versionInfo "1.1.0" .
+
+
+# ─── Core Classes ──────────────────────────────────────────────────────────────
+
+dpp:Product rdf:type owl:Class ;
+    rdfs:label "Product"@en ;
+    rdfs:comment "A physical product tracked by a Digital Product Passport."@en .
+
+dpp:Component rdf:type owl:Class ;
+    rdfs:label "Component"@en ;
+    rdfs:comment "A replaceable or identifiable part of a product."@en .
+
+dpp:Material rdf:type owl:Class ;
+    rdfs:label "Material"@en ;
+    rdfs:comment "A material used in product or component manufacturing."@en .
+
+dpp:HazardousSubstance rdf:type owl:Class ;
+    rdfs:subClassOf dpp:Material ;
+    rdfs:label "Hazardous Substance"@en ;
+    rdfs:comment "A material classified as hazardous under REACH, RoHS or CLP."@en .
+
+dpp:DataField rdf:type owl:Class ;
+    rdfs:label "Data Field"@en ;
+    rdfs:comment "A discrete piece of information within a Digital Product Passport."@en .
+
+dpp:DataCategory rdf:type owl:Class ;
+    rdfs:label "Data Category"@en ;
+    rdfs:comment "A thematic grouping of data fields (e.g., safety, sustainability)."@en .
+
+
+# ─── Stakeholder Classes (ODP: AgentRole) ──────────────────────────────────────
+
+dpp:Stakeholder rdf:type owl:Class ;
+    rdfs:subClassOf agentrole:Agent ;
+    rdfs:label "Stakeholder"@en ;
+    rdfs:comment "An actor with a role in the product lifecycle."@en .
+
+dpp:Recycler rdf:type owl:Class ;
+    rdfs:subClassOf dpp:Stakeholder ;
+    rdfs:label "Recycler"@en ;
+    rdfs:comment "A company or entity responsible for end-of-life recycling."@en .
+
+dpp:Consumer rdf:type owl:Class ;
+    rdfs:subClassOf dpp:Stakeholder ;
+    rdfs:label "Consumer"@en ;
+    rdfs:comment "The end user or purchaser of a product."@en .
+
+dpp:Manufacturer rdf:type owl:Class ;
+    rdfs:subClassOf dpp:Stakeholder ;
+    rdfs:label "Manufacturer"@en ;
+    rdfs:comment "The producer or OEM of the product."@en .
+
+dpp:Repairer rdf:type owl:Class ;
+    rdfs:subClassOf dpp:Stakeholder ;
+    rdfs:label "Repairer"@en ;
+    rdfs:comment "A service provider performing repairs and maintenance."@en .
+
+dpp:Collector rdf:type owl:Class ;
+    rdfs:subClassOf dpp:Stakeholder ;
+    rdfs:label "Collector"@en ;
+    rdfs:comment "A collection operator for end-of-life or B-stock products."@en .
+
+
+# ─── Lifecycle Event Classes (ODP: Participation) ─────────────────────────────────
+
+dpp:LifecycleEvent rdf:type owl:Class ;
+    rdfs:subClassOf participation:Event ;
+    rdfs:label "Lifecycle Event"@en ;
+    rdfs:comment "A significant event in the product's lifecycle."@en .
+
+dpp:PurchaseEvent rdf:type owl:Class ;
+    rdfs:subClassOf dpp:LifecycleEvent ;
+    rdfs:label "Purchase Event"@en .
+
+dpp:RepairEvent rdf:type owl:Class ;
+    rdfs:subClassOf dpp:LifecycleEvent ;
+    rdfs:label "Repair Event"@en .
+
+dpp:RecyclingEvent rdf:type owl:Class ;
+    rdfs:subClassOf dpp:LifecycleEvent ;
+    rdfs:label "Recycling Event"@en .
+
+dpp:MaintenanceEvent rdf:type owl:Class ;
+    rdfs:subClassOf dpp:LifecycleEvent ;
+    rdfs:label "Maintenance Event"@en .
+
+dpp:DisposalEvent rdf:type owl:Class ;
+    rdfs:subClassOf dpp:LifecycleEvent ;
+    rdfs:label "Disposal Event"@en .
+
+dpp:ResaleEvent rdf:type owl:Class ;
+    rdfs:subClassOf dpp:LifecycleEvent ;
+    rdfs:label "Resale Event"@en .
+
+
+# ─── R-Strategy Classes ───────────────────────────────────────────────────────
+
+dpp:RStrategy rdf:type owl:Class ;
+    rdfs:label "R-Strategy"@en ;
+    rdfs:comment "A Circular Economy R-strategy for extending product value."@en .
+
+dpp:Reuse rdf:type owl:Class ;
+    rdfs:subClassOf dpp:RStrategy ;
+    rdfs:label "Reuse"@en .
+
+dpp:Repair rdf:type owl:Class ;
+    rdfs:subClassOf dpp:RStrategy ;
+    rdfs:label "Repair"@en .
+
+dpp:Recycle rdf:type owl:Class ;
+    rdfs:subClassOf dpp:RStrategy ;
+    rdfs:label "Recycle"@en .
+
+dpp:Recover rdf:type owl:Class ;
+    rdfs:subClassOf dpp:RStrategy ;
+    rdfs:label "Recover"@en .
+
+dpp:Refurbish rdf:type owl:Class ;
+    rdfs:subClassOf dpp:RStrategy ;
+    rdfs:label "Refurbish"@en .
+
+dpp:Remanufacture rdf:type owl:Class ;
+    rdfs:subClassOf dpp:RStrategy ;
+    rdfs:label "Remanufacture"@en .
+
+
+# ─── Product Type Classes ─────────────────────────────────────────────────────
+
+dpp:HouseholdAppliance rdf:type owl:Class ;
+    rdfs:subClassOf dpp:Product ;
+    rdfs:label "Household Appliance"@en .
+
+dpp:WashingMachine rdf:type owl:Class ;
+    rdfs:subClassOf dpp:HouseholdAppliance ;
+    rdfs:label "Washing Machine"@en .
+
+dpp:Dishwasher rdf:type owl:Class ;
+    rdfs:subClassOf dpp:HouseholdAppliance ;
+    rdfs:label "Dishwasher"@en .
+
+dpp:Boiler rdf:type owl:Class ;
+    rdfs:subClassOf dpp:HouseholdAppliance ;
+    rdfs:label "Boiler"@en .
+
+dpp:HomeEnergySystem rdf:type owl:Class ;
+    rdfs:subClassOf dpp:Product ;
+    rdfs:label "Home Energy System"@en .
+
+dpp:SolarPanel rdf:type owl:Class ;
+    rdfs:subClassOf dpp:HomeEnergySystem ;
+    rdfs:label "Solar Panel"@en .
+
+dpp:LithiumBattery rdf:type owl:Class ;
+    rdfs:subClassOf dpp:HomeEnergySystem ;
+    rdfs:label "Lithium Battery"@en .
+
+
+# ─── Object Properties ────────────────────────────────────────────────────────
+
+dpp:hasComponent rdf:type owl:ObjectProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range dpp:Component ;
+    rdfs:label "has component"@en .
+
+dpp:hasMaterial rdf:type owl:ObjectProperty ;
+    rdfs:domain [ rdf:type owl:Class ; owl:unionOf (dpp:Product dpp:Component) ] ;
+    rdfs:range dpp:Material ;
+    rdfs:label "has material"@en .
+
+dpp:hasDataField rdf:type owl:ObjectProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range dpp:DataField ;
+    rdfs:label "has data field"@en .
+
+dpp:belongsToCategory rdf:type owl:ObjectProperty ;
+    rdfs:domain dpp:DataField ;
+    rdfs:range dpp:DataCategory ;
+    rdfs:label "belongs to category"@en .
+
+dpp:needsDataField rdf:type owl:ObjectProperty ;
+    rdfs:domain dpp:Stakeholder ;
+    rdfs:range dpp:DataField ;
+    rdfs:label "needs data field"@en ;
+    rdfs:comment "Indicates a stakeholder requires access to a specific data field."@en .
+
+dpp:participatesIn rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf participation:isParticipantIn ;
+    rdfs:domain dpp:Stakeholder ;
+    rdfs:range dpp:LifecycleEvent ;
+    rdfs:label "participates in"@en .
+
+dpp:triggersStrategy rdf:type owl:ObjectProperty ;
+    rdfs:domain dpp:LifecycleEvent ;
+    rdfs:range dpp:RStrategy ;
+    rdfs:label "triggers strategy"@en .
+
+dpp:containsSubstance rdf:type owl:ObjectProperty ;
+    rdfs:domain [ rdf:type owl:Class ; owl:unionOf (dpp:Product dpp:Component) ] ;
+    rdfs:range dpp:HazardousSubstance ;
+    rdfs:label "contains substance"@en .
+
+
+# ─── Datatype Properties ──────────────────────────────────────────────────────
+
+dpp:priority rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:float ;
+    rdfs:label "priority"@en ;
+    rdfs:comment "Relevance priority (0.0-1.0) of a data field for a stakeholder role in a lifecycle event. In the Neo4j knowledge graph it is stored on the NEEDS relationship together with the event."@en .
+
+dpp:productId rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range xsd:string ;
+    rdfs:label "product ID"@en .
+
+dpp:repairabilityScore rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range xsd:float ;
+    rdfs:label "repairability score"@en .
+
+dpp:recyclabilityPercentage rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range xsd:float ;
+    rdfs:label "recyclability percentage"@en .
+
+dpp:carbonFootprint rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range xsd:float ;
+    rdfs:label "carbon footprint (kg CO2)"@en .
+
+dpp:concentration rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:HazardousSubstance ;
+    rdfs:range xsd:float ;
+    rdfs:label "concentration percentage"@en .
+
+dpp:casNumber rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:HazardousSubstance ;
+    rdfs:range xsd:string ;
+    rdfs:label "CAS number"@en .
+
+
+# ─── Data Field Properties (mapped to external vocabularies via SSSOM) ─────────
+
+dpp:manufacturer rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range xsd:string ;
+    rdfs:label "manufacturer"@en ;
+    rdfs:comment "Name of the producer of the product."@en .
+
+dpp:model rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range xsd:string ;
+    rdfs:label "model"@en ;
+    rdfs:comment "Commercial model designation."@en .
+
+dpp:eanBarcode rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range xsd:string ;
+    rdfs:label "EAN barcode"@en ;
+    rdfs:comment "European Article Number (GTIN-13) of the product."@en .
+
+dpp:brandName rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range xsd:string ;
+    rdfs:label "brand name"@en ;
+    rdfs:comment "Commercial brand under which the product is sold."@en .
+
+dpp:colour rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range xsd:string ;
+    rdfs:label "colour"@en ;
+    rdfs:comment "Product colour designation."@en .
+
+dpp:countryOfOrigin rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range xsd:string ;
+    rdfs:label "country of origin"@en ;
+    rdfs:comment "ISO 3166-1 alpha-2 code of the primary production site."@en .
+
+dpp:manufacturingDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range xsd:date ;
+    rdfs:label "manufacturing date"@en ;
+    rdfs:comment "Date of production."@en .
+
+dpp:weightKg rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range xsd:float ;
+    rdfs:label "weight (kg)"@en ;
+    rdfs:comment "Product weight in kilograms."@en .
+
+dpp:recycledContentPct rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range xsd:float ;
+    rdfs:label "recycled content percentage"@en ;
+    rdfs:comment "Percentage by mass of recycled material in the product."@en .
+
+dpp:substanceOfConcernList rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range xsd:string ;
+    rdfs:label "substances of concern"@en ;
+    rdfs:comment "List of substances of concern contained in the product."@en .
+
+dpp:energyLabel rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range xsd:string ;
+    rdfs:label "energy label"@en ;
+    rdfs:comment "EU energy efficiency class of the product."@en .
+
+dpp:certifications rdf:type owl:DatatypeProperty ;
+    rdfs:domain dpp:Product ;
+    rdfs:range xsd:string ;
+    rdfs:label "certifications"@en ;
+    rdfs:comment "Product certifications obtained."@en .

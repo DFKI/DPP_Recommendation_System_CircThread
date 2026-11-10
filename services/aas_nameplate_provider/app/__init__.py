@@ -1,0 +1,1 @@
+"""AAS Digital Nameplate provider."""
