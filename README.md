@@ -1,5 +1,9 @@
 # Digital Product Memory Information Linking and Storage Service
 
+## About
+
+This repository accompanies a paper submitted to the *Journal of Circular Economy*.
+
 This is a prototype for a decentralized Digital Product Passport (DPP) system. It was developed as the Digital Product Memory Information Linking and Storage Service in the EU H2020 project CircThread, Deliverable D4.2: https://circthread.com/.
 
 The service combines product lifecycle data from registered data providers and filters/recommends that data for a selected stakeholder role, lifecycle event, or both.
@@ -1683,4 +1687,6 @@ curl http://localhost:8002/ontology/mappings
 
 ## License
 
-MIT
+Copyright (c) 2026 German Research Center for Artificial Intelligence (DFKI GmbH)
+
+This project is licensed under the [GNU General Public License v3.0](LICENSE).

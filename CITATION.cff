@@ -3,7 +3,7 @@ message: "If you use this software, please cite it as below."
 title: "Digital Product Memory Information Linking and Storage Service"
 abstract: "Prototype of a decentralised, recommendation-driven Digital Product Passport developed in the EU Horizon 2020 project CircThread (grant agreement No. 958448)."
 type: software
-license: MIT
+license: GPL-3.0-only
 authors:
   - family-names: Brozeit
     given-names: Jonas
